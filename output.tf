@@ -34,4 +34,3 @@ output "private_subnets" {
 output "kubectl_config_command" {
   value = "aws eks update-kubeconfig --region ${var.aws_region} --name ${aws_eks_cluster.main.name}"
 }
-
