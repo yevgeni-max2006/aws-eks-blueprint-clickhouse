@@ -19,4 +19,3 @@ resource "kubernetes_namespace" "migration" {
     ignore_changes = all
   }
 }
-
