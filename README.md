@@ -1,7 +1,8 @@
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/42a9571e-8a59-433e-864d-122819cbb393" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/56106d58-8d82-4070-87b9-2043ceb75287" />
 
 
-## AWS | EKS BluePrint MiniStack
+
+## AWS | EKS BluePrint ClickHouse
 MiniStack is a free, open-source local AWS cloud emulator designed to help developers build and test applications offline without hitting real AWS infrastructure. It serves as a drop-in community replacement for LocalStack, which transitioned core parts of its service behind paid plans
 
 
