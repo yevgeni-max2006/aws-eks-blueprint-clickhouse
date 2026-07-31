@@ -3,7 +3,7 @@
 
 
 ## AWS | EKS BluePrint ClickHouse
-MiniStack is a free, open-source local AWS cloud emulator designed to help developers build and test applications offline without hitting real AWS infrastructure. It serves as a drop-in community replacement for LocalStack, which transitioned core parts of its service behind paid plans
+ClickHouse is a fast, open-source, column-oriented database management system designed for online analytical processing (OLAP) and real-time data analysis using SQL
 
 
 
@@ -20,11 +20,10 @@ MiniStack is a free, open-source local AWS cloud emulator designed to help devel
 
 🧱 Features
 ```
-✔ Fully automated provisioning with Terraform
-✔ High availability using multiple subnets in different Availability Zones
-✔ Secure connectivity between Application and RDS
-✔ Configurable environment variables for database credentials
-✔ Easy to extend for other JSON data source
+✔ Column-Oriented Storage: Stores values for each column sequentially, reading only the data needed for a query
+✔ Extreme Speed: Processes billions of rows in milliseconds using vectorized query execution and hardware optimization.
+✔ High Compression: Uses efficient encoding to compress data on disk, saving storage space.
+✔ SQL Support: Uses a standard, easy-to-use SQL interface for reporting and complex data aggregation.
 ```
 
 
