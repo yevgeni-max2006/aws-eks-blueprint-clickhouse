@@ -5,6 +5,22 @@ resource "kubernetes_namespace" "clickhouse" {
   }
 }
 
+
+resource "kubernetes_secret_v1" "clickhouse_credentials" {
+  metadata {
+    name      = "clickhouse-credentials"
+    namespace = kubernetes_namespace.clickhouse.metadata[0].name
+  }
+
+  data = {
+    user     = "default"
+    password = "fuko09phsurxho"
+  }
+
+  type = "Opaque"
+}
+
+
 resource "helm_release" "clickhouse_operator" {
   name       = "clickhouse-operator"
   repository = "https://helm.altinity.com"
@@ -26,12 +42,6 @@ resource "helm_release" "clickhouse" {
 
   values = [
     yamlencode({
-
-      configuration = {
-      users = {
-        "default/password" = "fuko09phsurxho"
-        }
-      }
       clickhouse = {
         replicasCount = 3
         shardsCount   = 1
@@ -40,6 +50,12 @@ resource "helm_release" "clickhouse" {
       keeper = {
         enabled      = true
         replicaCount = 3
+      }
+
+      users = {
+        default = {
+          password = "fuko09phsurxho"
+        }
       }
 
       persistence = {
@@ -51,7 +67,8 @@ resource "helm_release" "clickhouse" {
   ]
 
   depends_on = [
-    helm_release.clickhouse_operator
+    helm_release.clickhouse_operator,
+    kubernetes_secret_v1.clickhouse_credentials
   ]
 
   timeout = 900
