@@ -76,3 +76,4 @@ resource "kubernetes_service" "httpd_server" {
     type = var.service_type
   }
 }
+
