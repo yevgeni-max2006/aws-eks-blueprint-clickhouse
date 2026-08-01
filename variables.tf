@@ -19,6 +19,21 @@ variable "instance_types" {
   default  = ["t3.medium"]
 }
 
+variable "node_group_desired_size" {
+  description = "Desired number of nodes in EKS node group"
+  type        = number
+}
+
+variable "node_group_min_size" {
+  description = "Minimum number of nodes in EKS node group"
+  type        = number
+}
+
+variable "node_group_max_size" {
+  description = "Maximum number of nodes in EKS node group"
+  type        = number
+}
+
 variable "kubeconfig_path" {
   type        = string
   description = "Path to kubeconfig for the target cluster"
