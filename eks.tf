@@ -97,9 +97,9 @@ resource "aws_eks_node_group" "main" {
   subnet_ids     = aws_subnet.private[*].id
 
   scaling_config {
-    desired_size = 2
-    max_size     = 7
-    min_size     = 2
+  desired_size = var.node_group_desired_size
+  min_size     = var.node_group_min_size
+  max_size     = var.node_group_max_size
   }
 
   instance_types = var.instance_types
