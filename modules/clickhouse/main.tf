@@ -17,14 +17,11 @@ resource "helm_release" "clickhouse_operator" {
   wait    = true
 }
 
-
 resource "helm_release" "clickhouse" {
   name       = "clickhouse"
   repository = "https://helm.altinity.com"
   chart      = "clickhouse"
   namespace  = kubernetes_namespace.clickhouse.metadata[0].name
-
-  create_namespace = false
 
   values = [
     yamlencode({
@@ -50,4 +47,12 @@ resource "helm_release" "clickhouse" {
         size             = "10Gi"
       }
     })
-]
+  ]
+
+  depends_on = [
+    helm_release.clickhouse_operator
+  ]
+
+  timeout = 900
+  wait    = true
+}
