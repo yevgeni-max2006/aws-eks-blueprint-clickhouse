@@ -20,7 +20,6 @@ EOT
   }
 }
 
-
 resource "null_resource" "clickhouse_database" {
   depends_on = [
     null_resource.wait_for_clickhouse
