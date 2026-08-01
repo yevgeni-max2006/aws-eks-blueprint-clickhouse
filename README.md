@@ -1,5 +1,4 @@
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/56106d58-8d82-4070-87b9-2043ceb75287" />
-
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0cffae62-70ca-42c2-9814-79c40e6080a0" />
 
 
 ## AWS | EKS BluePrint ClickHouse
