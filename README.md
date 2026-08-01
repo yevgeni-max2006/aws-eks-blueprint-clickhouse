@@ -10,11 +10,11 @@ ClickHouse is a fast, open-source, column-oriented database management system de
 🎯 Architecture Overview
 ```
 ✅ VPC containing , Public+Private Subnets , NAT Gateway
-✅ EKS Cluster Provisioner Workflow 
+✅ EKS Cluster Provisioner Workflow
+✅ Kong Api Gateway
 ✅ Minio S3 Object Storage 
-✅ Velero Disaster Recovery
-✅ Velero UI Interface
-✅ Local Exec ( Logical Workloads )
+✅ Argo Events
+✅ Clickhouse ( Data )
 ```
 
 
