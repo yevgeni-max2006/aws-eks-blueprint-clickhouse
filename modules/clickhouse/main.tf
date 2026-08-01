@@ -17,6 +17,7 @@ resource "helm_release" "clickhouse_operator" {
   wait    = true
 }
 
+
 resource "helm_release" "clickhouse" {
   name       = "clickhouse"
   repository = "https://helm.altinity.com"
@@ -32,8 +33,8 @@ resource "helm_release" "clickhouse" {
       }
 
       clickhouse = {
-        replicasCount = 1
-        shardsCount   = 3
+        replicasCount = 3
+        shardsCount   = 1
       }
 
       keeper = {
@@ -45,6 +46,22 @@ resource "helm_release" "clickhouse" {
         enabled          = true
         storageClassName = "gp3"
         size             = "10Gi"
+      }
+
+      users = {
+        default = {
+          password = "fuko09phsurxho"
+        }
+
+        admin = {
+          password = "fuko09phsurxho"
+          profile  = "default"
+          quota    = "default"
+          networks = [
+            "0.0.0.0/0",
+            "::/0"
+          ]
+        }
       }
     })
   ]
