@@ -17,11 +17,6 @@ module "kong" {
   depends_on = [module.httpd]
 }
 
-module "kong-exec" {
-  source = "./modules/kong-exec"
-  depends_on = [module.kong]
-}
-
 module "minio" {
   source = "./modules/minio"
   depends_on = [module.kong]
@@ -35,4 +30,9 @@ module "argo-events" {
 module "clickhouse" {
   source = "./modules/clickhouse"
   depends_on = [module.argo-events]
+}
+
+module "local-exec" {
+  source = "./modules/local-exec"
+  depends_on = [module.clickhouse]
 }
