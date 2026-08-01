@@ -27,34 +27,27 @@ resource "helm_release" "clickhouse" {
   create_namespace = false
 
   values = [
-  yamlencode({
-    operator = {
-      enabled = false
-    }
+    yamlencode({
+      clickhouse = {
+        replicasCount = 3
+        shardsCount   = 1
+      }
 
-    clickhouse = {
-      replicasCount = 3
-      shardsCount   = 1
-    }
+      keeper = {
+        enabled      = true
+        replicaCount = 3
+      }
 
-    keeper = {
-      enabled      = true
-      replicaCount = 3
-    }
-
-    clickhouseInstallation = {
       configuration = {
         users = {
           "default/password" = "fuko09phsurxho"
         }
       }
-    }
 
-    persistence = {
-      enabled          = true
-      storageClassName = "gp3"
-      size             = "10Gi"
-    }
-  })
- ]
-}
+      persistence = {
+        enabled          = true
+        storageClassName = "gp3"
+        size             = "10Gi"
+      }
+    })
+]
