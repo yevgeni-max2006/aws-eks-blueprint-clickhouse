@@ -17,6 +17,7 @@ resource "helm_release" "clickhouse_operator" {
   wait    = true
 }
 
+
 resource "helm_release" "clickhouse" {
   name       = "clickhouse"
   repository = "https://helm.altinity.com"
@@ -25,6 +26,12 @@ resource "helm_release" "clickhouse" {
 
   values = [
     yamlencode({
+
+      configuration = {
+      users = {
+        "default/password" = "fuko09phsurxho"
+        }
+      }
       clickhouse = {
         replicasCount = 3
         shardsCount   = 1
@@ -33,12 +40,6 @@ resource "helm_release" "clickhouse" {
       keeper = {
         enabled      = true
         replicaCount = 3
-      }
-
-      configuration = {
-        users = {
-          "default/password" = "fuko09phsurxho"
-        }
       }
 
       persistence = {
