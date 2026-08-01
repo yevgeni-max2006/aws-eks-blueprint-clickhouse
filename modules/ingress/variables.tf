@@ -26,3 +26,4 @@ variable "service_port" {
   type        = number
   default     = "9001"
 }
+
