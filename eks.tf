@@ -124,9 +124,9 @@ resource "aws_eks_node_group" "app" {
   subnet_ids      = aws_subnet.private[*].id
 
   scaling_config {
-    desired_size = 1
-    max_size     = 4
-    min_size     = 1
+    desired_size = 0
+    max_size     = 1
+    min_size     = 0
   }
 
   # Optional: use different instance types
