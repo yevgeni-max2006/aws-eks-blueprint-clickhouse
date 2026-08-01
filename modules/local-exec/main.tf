@@ -18,10 +18,6 @@ kubectl wait \
 echo "ClickHouse is ready."
 EOT
   }
-
-  triggers = {
-    release = helm_release.clickhouse.version
-  }
 }
 
 
