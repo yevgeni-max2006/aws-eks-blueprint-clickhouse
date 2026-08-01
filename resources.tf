@@ -32,7 +32,7 @@ module "argo-events" {
   depends_on = [module.minio]
 }
 
-module "ingress" {
-  source = "./modules/ingress"
+module "clickhouse" {
+  source = "./modules/clickhouse"
   depends_on = [module.argo-events]
 }
