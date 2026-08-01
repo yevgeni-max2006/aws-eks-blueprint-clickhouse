@@ -56,4 +56,5 @@ resource "helm_release" "clickhouse" {
       size             = "10Gi"
     }
   })
-]
+ ]
+}
