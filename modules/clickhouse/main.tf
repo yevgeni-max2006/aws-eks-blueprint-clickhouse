@@ -27,49 +27,33 @@ resource "helm_release" "clickhouse" {
   create_namespace = false
 
   values = [
-    yamlencode({
-      operator = {
-        enabled = false
-      }
+  yamlencode({
+    operator = {
+      enabled = false
+    }
 
-      clickhouse = {
-        replicasCount = 3
-        shardsCount   = 1
-      }
+    clickhouse = {
+      replicasCount = 3
+      shardsCount   = 1
+    }
 
-      keeper = {
-        enabled      = true
-        replicaCount = 3
-      }
+    keeper = {
+      enabled      = true
+      replicaCount = 3
+    }
 
-      persistence = {
-        enabled          = true
-        storageClassName = "gp3"
-        size             = "10Gi"
-      }
-
-      users = {
-        default = {
-          password = "fuko09phsurxho"
-        }
-
-        admin = {
-          password = "fuko09phsurxho"
-          profile  = "default"
-          quota    = "default"
-          networks = [
-            "0.0.0.0/0",
-            "::/0"
-          ]
+    clickhouseInstallation = {
+      configuration = {
+        users = {
+          "default/password" = "fuko09phsurxho"
         }
       }
-    })
-  ]
+    }
 
-  depends_on = [
-    helm_release.clickhouse_operator
-  ]
-
-  timeout = 900
-  wait    = true
-}
+    persistence = {
+      enabled          = true
+      storageClassName = "gp3"
+      size             = "10Gi"
+    }
+  })
+]
