@@ -1,9 +1,6 @@
 
 resource "null_resource" "wait_for_clickhouse" {
-
   provisioner "local-exec" {
-    interpreter = ["/bin/bash", "-c"]
-
     command = <<EOT
 set -euo pipefail
 
