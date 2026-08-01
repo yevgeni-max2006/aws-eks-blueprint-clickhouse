@@ -9,5 +9,6 @@ resource "helm_release" "argo_events" {
 
   atomic          = true
   cleanup_on_fail = true
+  wait            = true
   timeout         = 900
 }
